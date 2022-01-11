@@ -22,7 +22,7 @@ CFLAGS += \
   -DCFG_TUSB_MCU=OPT_MCU_STM32F4
 
 # suppress warning caused by vendor mcu driver
-CFLAGS += -Wno-error=cast-align -Wno-error=unused-parameter
+CFLAGS += -Wno-error=cast-align -Wno-error=unused-parameter -Wno-stringop-overread
 
 LD_FILES ?= $(PORT_DIR)/linker/stm32f4.ld
 
@@ -41,7 +41,7 @@ PORT_SRC_C += \
 SRC_C += \
 	$(PORT_SRC_C) \
 	lib/tinyusb/src/portable/synopsys/dwc2/dcd_dwc2.c \
-	
+
 # Port include
 INC += \
 	$(TOP)/$(CMSIS_5)/CMSIS/Core/Include \
